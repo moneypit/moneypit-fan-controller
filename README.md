@@ -19,6 +19,8 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 - Clone repo
 
+- Rename `config_sample.json` to `config.json`
+
 - Update config (as necessary) to define PINs where sensors / relay are attached:
 
 ```
