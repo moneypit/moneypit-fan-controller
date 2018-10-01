@@ -11,8 +11,8 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 - Redis `sudo apt-get install redis-server`
 - Node `sudo apt-get install npm`
-- PHP CLI `apt-get install php7-cli`
-- PHP Curl `sudo apt-get install php7-curl`
+- PHP CLI `sudo apt-get install php7.0-cli`
+- PHP Curl `sudo apt-get install php7.0-curl`
 - A remote `elasticsearch` to post stats to
 
 ## Install
