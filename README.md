@@ -15,6 +15,8 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 - PHP Curl `sudo apt-get install php7.0-curl`
 - A remote `elasticsearch` to post stats to
 
+> Recommend running `sudo apt-get update` if running into issues installing dependencies
+
 ## Install
 
 - Clone repo
