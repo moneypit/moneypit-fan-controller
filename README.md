@@ -9,17 +9,35 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 ## Dependencies
 
-- Redis `sudo apt-get install redis-server`
-- Node `sudo apt-get install npm`
-- PHP CLI `sudo apt-get install php7.0-cli`
-- PHP Curl `sudo apt-get install php7.0-curl`
+- Git 
+   `sudo apt-get install git`
+   
+- Python 2 w/ pip
+  `sudo apt-get install python-pip` 
+  `sudo python -m pip install --upgrade pip setuptools wheel`
+  
+- Redis Server / Python Client
+   `sudo apt-get install redis-server`
+   `sudo pip install redis`
+   
+- Npm / Node 
+   `sudo apt-get install npm`
+   `sudo apt-get install nodejs`
+   
+- PHP CLI / Curl 
+   `sudo apt-get install php7.0-cli`
+   `sudo apt-get install php7.0-curl`
+
+- Temp Sensor Python Library
+  `sudo pip install Adafruit_DHT`
+
 - A remote `elasticsearch` to post stats to
 
 > Recommend running `sudo apt-get update` if running into issues installing dependencies
 
 ## Install
 
-- Clone repo
+- Clone repo `git clone https://github.com/moneypit/moneypit-fan-controller`
 
 - Rename `config_sample.json` to `config.json`
 
@@ -86,6 +104,14 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 	exit 0
 
 ```
+
+- From within the `./moneypit-fan-controller-folder` install PHP / Node dependencies
+  
+  ```
+   $ wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
+   $ php composer.phar install
+   $ npm install
+  ```
 
 - Setup the following cron jobs:
 
