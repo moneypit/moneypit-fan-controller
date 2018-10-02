@@ -124,6 +124,12 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 ```
 
+- Set an initial state for fan
+
+```
+curl --header "Content-Type: application/json" --request POST --data '{"state":"off"}' http://localhost:3000/fan
+```
+
 ## APIs
 
 `GET /` => Swagger docs
