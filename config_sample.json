@@ -5,8 +5,7 @@
     "hosts": [
       "https://elastic:xxx.us-east-1.aws.found.io:9243"
     ],
-    "stats_index": "mp-fan-name-stats",
-    "log_index": "mp-fan-name-logs"
+    "stats_index": "mp-fan-name-stats"
   },
   "redis": {
     "host": "localhost",
@@ -17,7 +16,8 @@
     "pin": "4"
   },
   "hall": {
-    "pin": 14
+    "pin": 14,
+	"sample_time": 10
   },
   "relay": {
     "pin": 24
