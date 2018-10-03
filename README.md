@@ -145,6 +145,12 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 curl --header "Content-Type: application/json" --request POST --data '{"state":"off"}' http://localhost:3000/fan
 ```
 
+- Reboot the device to start processes
+
+```
+sudo reboot
+```
+
 ## APIs
 
 `GET /` => Swagger docs
