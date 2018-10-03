@@ -133,9 +133,9 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 ```
 
-* * * * * python /home/pi/moneypit-fan-controller/scripts/fetch-temp.py /home/pi/moneypit-fan-controller/config.json
-* * * * * python /home/pi/moneypit-fan-controller/scripts/set-fan-relay-state.py /home/pi/moneypit-fan-controller/config.json
-* * * * * php /home/pi/moneypit-fan-controller/scripts/post-stats.php
+* * * * * python /home/pi/moneypit-fan-controller/scripts/fetch_temp.py /home/pi/moneypit-fan-controller/config.json
+* * * * * python /home/pi/moneypit-fan-controller/scripts/set_fan_relay_state.py /home/pi/moneypit-fan-controller/config.json
+* * * * * php /home/pi/moneypit-fan-controller/scripts/post_stats.php
 
 ```
 
