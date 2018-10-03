@@ -70,7 +70,7 @@ router.post('/fan', function(req, res, next) {
   stateBody.timestamp = date.toISOString();
 
   if (stateBody.state == "on") {
-    child_process.exec('python /home/pi/moneypit-fan-controller/scripts/set-fan-relay-state-on.py /home/pi/moneypit-fan-controller/config.json', function (err, stdout, stderr) {
+    child_process.exec('python /home/pi/moneypit-fan-controller/scripts/set_fan_relay_state_on.py /home/pi/moneypit-fan-controller/config.json', function (err, stdout, stderr) {
       console.log(err);
       console.log(stdout);
       console.log(stderr);
@@ -78,7 +78,7 @@ router.post('/fan', function(req, res, next) {
   }
 
   if (stateBody.state == "off") {
-    child_process.exec('python /home/pi/moneypit-fan-controller/scripts/set-fan-relay-state-off.py /home/pi/moneypit-fan-controller/config.json', function (err, stdout, stderr) {
+    child_process.exec('python /home/pi/moneypit-fan-controller/scripts/set_fan_relay_state_off.py /home/pi/moneypit-fan-controller/config.json', function (err, stdout, stderr) {
       console.log(err);
       console.log(stdout);
       console.log(stderr);
