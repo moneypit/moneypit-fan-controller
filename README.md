@@ -30,7 +30,19 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 - Temp Sensor Python Library
   `sudo pip install Adafruit_DHT`
+  
+- Pigpio (http://abyz.me.uk/rpi/pigpio/index.html)
 
+  ```
+  rm pigpio.zip
+  sudo rm -rf PIGPIO
+  wget abyz.me.uk/rpi/pigpio/pigpio.zip
+  unzip pigpio.zip
+  cd PIGPIO
+  make
+  sudo make install
+  ```
+  
 - A remote `elasticsearch` to post stats to
 
 > Recommend running `sudo apt-get update` if running into issues installing dependencies
@@ -101,6 +113,9 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 	# Start moneypit-fan-controller node app / api
 	sudo /usr/bin/npm start --prefix /home/pi/moneypit-fan-controller &
+	
+        # Start fan speed monitor script 
+	sudo /usr/bin/python /home/pi/moneypit-fan-controller/scripts/fetch_fan_speed.py /home/pi/moneypit-fan-controller/config.json  &
 	exit 0
 
 ```
