@@ -2,8 +2,8 @@
 
 Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ with the following sensors / controls:
 
-- DHT22 Temperature sensor (https://www.amazon.com/dp/B0795F19W6)
-- Hall sensor to measure fan RPM (tbd)
+- DHT22 Temperature sensor (https://www.adafruit.com/product/385)
+- Hall sensor to measure fan RPM (https://www.sunfounder.com/analog-hall-sensor-module.html)
 - Relay to turn fan on / off (https://www.amazon.com/gp/product/B07C3YMFVJ)
 
 
