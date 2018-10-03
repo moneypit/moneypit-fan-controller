@@ -53,25 +53,24 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 - Rename `config_sample.json` to `config.json`
 
-- Update config (as necessary) to define PINs where sensors / relay are attached:
+- Update config
 
 ```
 
 {
-  "device": "moneypit-fan-name",
-  "location": "moneypitmine",
+  "device": "moneypit-fan-name",   <-- change to a unique name for your fan
+  "location": "moneypitmine",      <-- change to where the fan is installed (this gets posted to Elasticsearch to help filter where devices are installed)
   "elasticsearch": {
     "hosts": [
-      "https://elastic:xxx.us-east-1.aws.found.io:9243"
+      "https://elastic:xxx.us-east-1.aws.found.io:9243"  <-- update for your ES install
     ],
-    "stats_index": "mp-fan-name-stats",
-    "log_index": "mp-fan-name-logs"
+    "stats_index": "moneypit-fan-name-stats" <-- change to a unique index where the fan stats will be posted
   },
-  "redis": {
+  "redis": {  <-- typically this shouldn't be changed if redis is running on the pi
     "host": "localhost",
     "port": "6379"
   },
-  "temp": {
+  "temp": { 
     "sensor": 22,
     "pin": "4"
   },
@@ -85,7 +84,9 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 ```
 
-- Configure node / redis to start on reboot using `/etc/rc.local`
+> You should update pins if sensor is plugged into different GPIO ports than shown
+
+- Configure node / redis / fan rpm monitoring script to start on reboot using `/etc/rc.local`
 
 ```
 
