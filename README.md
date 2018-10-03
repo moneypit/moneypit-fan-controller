@@ -9,28 +9,28 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 ## Dependencies
 
-- Git 
+- Git
    `sudo apt-get install git`
-   
+
 - Python 2 w/ pip
-  `sudo apt-get install python-pip` 
+  `sudo apt-get install python-pip`
   `sudo python -m pip install --upgrade pip setuptools wheel`
-  
+
 - Redis Server / Python Client
    `sudo apt-get install redis-server`
    `sudo pip install redis`
-   
-- Npm / Node 
+
+- Npm / Node
    `sudo apt-get install npm`
    `sudo apt-get install nodejs`
-   
-- PHP CLI / Curl 
+
+- PHP CLI / Curl
    `sudo apt-get install php7.0-cli`
    `sudo apt-get install php7.0-curl`
 
 - Temp Sensor Python Library
   `sudo pip install Adafruit_DHT`
-  
+
 - Pigpio (http://abyz.me.uk/rpi/pigpio/index.html)
 
   ```
@@ -42,7 +42,7 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
   make
   sudo make install
   ```
-  
+
 - A remote `elasticsearch` to post stats to
 
 > Recommend running `sudo apt-get update` if running into issues installing dependencies
@@ -70,7 +70,7 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
     "host": "localhost",
     "port": "6379"
   },
-  "temp": { 
+  "temp": {
     "sensor": 22,
     "pin": "4"
   },
@@ -109,20 +109,24 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 	  printf "My IP address is %s\n" "$_IP"
 	fi
 
+  # Start pigpiod
+  sudo /usr/local/bin/pigpiod &
+
 	# Start redis-server
 	sudo /home/pi/redis/src/redis-server /home/pi/redis/redis.conf &
 
 	# Start moneypit-fan-controller node app / api
 	sudo /usr/bin/npm start --prefix /home/pi/moneypit-fan-controller &
-	
-        # Start fan speed monitor script 
+
+  # Start fan speed monitor script
 	sudo /usr/bin/python /home/pi/moneypit-fan-controller/scripts/fetch_fan_speed.py /home/pi/moneypit-fan-controller/config.json  &
+
 	exit 0
 
 ```
 
 - From within the `./moneypit-fan-controller-folder` install PHP / Node dependencies
-  
+
   ```
    $ wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
    $ php composer.phar install
