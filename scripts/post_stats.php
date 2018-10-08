@@ -14,14 +14,14 @@ $deviceStats = [];
 $deviceStats['timestamp'] = date("c");
 $deviceStats['device'] = $config['device'];
 $deviceStats['location'] = $config['location'];
-$deviceStats['stats']['temperature'] = json_decode(file_get_contents("http://localhost:3000/temperature"), TRUE);
-$deviceStats['stats']['fan'] = json_decode(file_get_contents("http://localhost:3000/fan"), TRUE);
+$deviceStats['stats']['temperature'] = json_decode(file_get_contents("http://localhost:3000/api/temperature"), TRUE);
+$deviceStats['stats']['fan'] = json_decode(file_get_contents("http://localhost:3000/api/fan"), TRUE);
 if ($deviceStats['stats']['fan']['state'] == "on") {
   $deviceStats['stats']['fan']['state_num'] = 1;
 } else {
   $deviceStats['stats']['fan']['state_num'] = -1;
 }
-$deviceStats['stats']['fanspeed'] = json_decode(file_get_contents("http://localhost:3000/fanspeed"), TRUE);
+$deviceStats['stats']['fanspeed'] = json_decode(file_get_contents("http://localhost:3000/api/fanspeed"), TRUE);
 
 $params = [
   'index' => strtolower($config['elasticsearch']['stats_index']),
