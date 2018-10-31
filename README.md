@@ -86,6 +86,10 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 
 > You should update pins if sensor is plugged into different GPIO ports than shown
 
+- Enable `redis-server` service is start on reboot
+
+`sudo systemctl enable redis-server`
+
 - Configure node / redis / fan rpm monitoring script to start on reboot using `/etc/rc.local`
 
 ```
@@ -112,11 +116,8 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
   # Start pigpiod
   sudo /usr/local/bin/pigpiod &
 
-	# Start redis-server
-	sudo /home/pi/redis/src/redis-server /home/pi/redis/redis.conf &
-
 	# Start moneypit-fan-controller node app / api
-	sudo /usr/bin/npm start --prefix /home/pi/moneypit-fan-controller &
+	sudo /usr/bin/npm start --cwd /home/pi/moneypit-fan-controller --prefix /home/pi/moneypit-fan-controller &
 
   # Start fan speed monitor script
 	sudo /usr/bin/python /home/pi/moneypit-fan-controller/scripts/fetch_fan_speed.py /home/pi/moneypit-fan-controller/config.json  &
@@ -128,9 +129,9 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 - From within the `./moneypit-fan-controller-folder` install PHP / Node dependencies
 
   ```
-   $ wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
-   $ php composer.phar install
-   $ npm install
+  wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
+  php composer.phar install
+  npm install
   ```
 
 - Setup the following cron jobs:
@@ -146,7 +147,7 @@ Used to control / monitor fan operations.  Designed to run on a Raspberry Pi 3+ 
 - Set an initial state for fan
 
 ```
-curl --header "Content-Type: application/json" --request POST --data '{"state":"off"}' http://localhost:3000/fan
+curl --header "Content-Type: application/json" --request POST --data '{"state":"off"}' http://localhost:3000/api/fan
 ```
 
 - Reboot the device to start processes
