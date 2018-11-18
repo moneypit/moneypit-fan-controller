@@ -17,7 +17,8 @@
   },
   "hall": {
     "pin": 14,
-	"sample_time": 10
+    "sample_time": 10,
+    "calibration_factor": 1.0 
   },
   "relay": {
     "pin": 24

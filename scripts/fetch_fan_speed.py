@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
       fanSpeed = {}
       fanSpeed['timestamp'] = datetime.datetime.now().isoformat()
-      fanSpeed['rpm'] = int(RPM+0.5)
+      fanSpeed['rpm'] = int((RPM*config['hall']['calibration_factor'])+0.5)
       fanSpeed['sample_time'] = SAMPLE_TIME
       print(fanSpeed)
       rClient.set('fanspeed',json.dumps(fanSpeed))
