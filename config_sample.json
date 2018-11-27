@@ -1,0 +1,26 @@
+{
+  "device": "moneypit-fan-name",
+  "location": "moneypitmine",
+  "elasticsearch": {
+    "hosts": [
+      "https://elastic:xxx.us-east-1.aws.found.io:9243"
+    ],
+    "stats_index": "mp-fan-name-stats"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": "6379"
+  },
+  "temp": {
+    "sensor": 22,
+    "pin": "4"
+  },
+  "hall": {
+    "pin": 14,
+    "sample_time": 10,
+    "calibration_factor": 1.0 
+  },
+  "relay": {
+    "pin": 24
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "moneypit-fan-controller",
+    "version": ".1",
+    "title": "moneypit-fan-controller"
+  },
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/config": {
+      "get": {
+        "tags": [
+          "config"
+        ],
+        "summary": "Fetch controller config",
+        "operationId": "config",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/temperature": {
+      "get": {
+        "tags": [
+          "temperature"
+        ],
+        "summary": "Fetch temperature and humidity",
+        "operationId": "temperature",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/fanspeed": {
+      "get": {
+        "tags": [
+          "fanspeed"
+        ],
+        "summary": "Fetch current fan speed",
+        "operationId": "fanspeed",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/fan": {
+      "get": {
+        "tags": [
+          "fan"
+        ],
+        "summary": "Fetch current state of fan (on / off)",
+        "operationId": "fan",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "fan"
+        ],
+        "summary": "Turn fan on / off",
+        "operationId": "fan",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  }
+}
